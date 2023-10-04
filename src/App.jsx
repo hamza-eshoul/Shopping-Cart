@@ -1,97 +1,62 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from "./components/About";
-import Cart from "./components/Cart";
-import Home from "./components/Home";
-import Nav from "./components/Nav";
-import ShopPage1 from "./components/ShopPage1";
-import ShopPage2 from "./components/ShopPage2";
+
+// components
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
+// pages
+import Home from "./pages/Homepage/Home";
+import About from "./pages/About/About";
+import Cart from "./pages/Cart";
+import ShopPage from "./pages/ShopPage";
 
 const App = () => {
-  const [navBg, setNavBg] = useState("bg-white");
-
-  const setNavBgGray = () => {
-    setNavBg("bg-gray-50");
-  };
-
-  const setNavBgWhite = () => {
-    setNavBg("bg-white");
-  };
-
   const [productCart, setProductCart] = useState([]);
-
-  const [productIdCounter, setProductIdCounter] = useState(1);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const reduceQt = productCart.reduce((total, product) => {
-      return total + product.productQuantity;
+    const cartTotalQuantity = productCart.reduce((total, product) => {
+      return total + product.quantity;
     }, 0);
 
-    setTotalQuantity(reduceQt);
+    setTotalQuantity(cartTotalQuantity);
 
-    const reducePrice = productCart.reduce((total, product) => {
-      return (
-        total + product.productQuantity * +product.productPrice.slice(0, -1)
-      );
+    const cartTotalPrice = productCart.reduce((total, product) => {
+      return total + product.quantity * +product.price.slice(0, -1);
     }, 0);
 
-    setTotalPrice(reducePrice);
+    setTotalPrice(cartTotalPrice);
   }, [productCart]);
 
   return (
-    <BrowserRouter basename="/">
-      <div className="font-inter">
-        {" "}
-        <Nav navBg={navBg} totalQuantity={totalQuantity} />
-        <Routes>
-          <Route
-            exact
-            path="/Shopping-Cart-Project"
-            element={<Home whiteNavBg={setNavBgWhite} />}
-          />
-          <Route
-            path="/shop1"
-            element={
-              <ShopPage1
-                grayNavBg={setNavBgGray}
-                productCart={productCart}
-                purchaseProduct={setProductCart}
-                productIdCounter={productIdCounter}
-                setProductIdCounter={setProductIdCounter}
-              />
-            }
-          />
-          <Route
-            path="/shop2"
-            element={
-              <ShopPage2
-                grayNavBg={setNavBgGray}
-                productCart={productCart}
-                purchaseProduct={setProductCart}
-                productIdCounter={productIdCounter}
-                setProductIdCounter={setProductIdCounter}
-              />
-            }
-          />
-          <Route path="/about" element={<About whiteNavBg={setNavBgWhite} />} />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                whiteNavBg={setNavBgWhite}
-                productCart={productCart}
-                setProductCart={setProductCart}
-                totalQuantity={totalQuantity}
-                totalPrice={totalPrice}
-              />
-            }
-          />
-        </Routes>
-      </div>
+    <BrowserRouter>
+      {/* <<div className="bg-[#FAFAFA] font-inter font-normal"> */}
+      <Header totalQuantity={totalQuantity} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/shop"
+          element={<ShopPage setProductCart={setProductCart} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              productCart={productCart}
+              setProductCart={setProductCart}
+              totalQuantity={totalQuantity}
+              totalPrice={totalPrice}
+            />
+          }
+        />
+      </Routes>
+      <Footer />
+      {/* </div> */}
     </BrowserRouter>
   );
 };
