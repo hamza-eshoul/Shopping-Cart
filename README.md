@@ -8,7 +8,7 @@ The goal of the project was to build a mock shopping cart to practice React JS c
 
 The shopping items that I chose for this project are computers.
 
-- Project's Live Preview url - https://thunder-computation.onrender.com/about
+- Project's Live Preview url - https://thunder-computation.onrender.com/
 
 ## Homepage
 
