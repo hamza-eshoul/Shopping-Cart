@@ -11,7 +11,7 @@ import CNNSvg from "../../assets/svg/CNN.svg?react";
 import BBCSvg from "../../assets/svg/BBC.svg?react";
 import CBSSvg from "../../assets/svg/CBS.svg?react";
 import FastCompanySvg from "../../assets/svg/FastCompany.svg?react";
-import HuffSpotSvg from "../../assets/svg/HuffSpot.svg?react";
+import HuffSpotSvg from "../../assets/svg/Huffspot.svg?react";
 
 const icons_list = [
   { svgIcon: ForbesSvg },
