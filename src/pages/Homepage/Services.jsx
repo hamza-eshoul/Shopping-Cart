@@ -39,7 +39,7 @@ const Services = () => {
             {" "}
             Every feature you need to win. Try it for yourself.{" "}
           </h2>
-          <p className="max-w-2xl text-lg font-light leading-8 text-zinc-400">
+          <p className="max-w-2xl text-justify text-lg font-light leading-8 text-zinc-400">
             {" "}
             Our purpose is to allow our customers to find the best computers of
             the market at the best price. With these computers, you will be able

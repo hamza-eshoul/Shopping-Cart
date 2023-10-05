@@ -1,37 +1,39 @@
 // images
-import founder from "../../assets/images/founder.avif";
-import sales from "../../assets/images/sales.jpg";
-import finance from "../../assets/images/finance.jpg";
-import developer from "../../assets/images/developer.jpg";
+import RFK from "../../assets/images/RFK.jpg";
+import Camus from "../../assets/images/Camus.jpg";
+import Ntz from "../../assets/images/Ntz.jpeg";
+import Dostoevsky from "../../assets/images/Dostoevsky.jpg";
 
 // components
 import TeamCard from "./TeamCard";
 
 const team_members = [
   {
-    name: "John Doe",
-    image: founder,
+    name: "Robert Francis Kennedy",
+    image: RFK,
     role: "Founder of the Company",
-    slogan: "Do what you can't.",
+    slogan: "Only those who dare to fail greatly can ever achieve greatly.",
   },
   {
-    name: "Lucian Cardenas",
-    image: developer,
+    name: "Albert Camus",
+    image: Camus,
     role: "Full Stack Developer",
-    slogan: "A problem well stated is a problem half solved.",
+    slogan:
+      "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.",
   },
   {
-    name: "Kyle Baxter",
-    image: finance,
+    name: "Friedrich Nietzsche",
+    image: Ntz,
     role: "Administrative & financial Manager",
-    slogan: "Compounding successes amount to greatness.",
+    slogan:
+      "One must need to be strong -- otherwise one will never become strong.",
   },
   {
-    name: "Bernard Dyer",
-    image: sales,
+    name: "Fyodor Dostoevsky",
+    image: Dostoevsky,
     role: "Sales & Marketing Manager",
     slogan:
-      "Don't find customers for your products, find products for your customers.",
+      "Man is sometimes extraordnarily, passionately, in love with suffering, and that is a fact",
   },
 ];
 
